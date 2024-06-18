@@ -26,8 +26,11 @@ export const App: React.FC = () => {
     inputRef.current?.focus();
 
     // Load todos from local storage
-    setTodosLocal(JSON.parse(localStorage.getItem('todos') || '[]'));
-  }, [setTodosLocal]);
+    const storedTodos = JSON.parse(
+      localStorage.getItem('react_todo-app_todos') || '[]',
+    );
+    setTodosLocal(storedTodos);
+  }, []);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

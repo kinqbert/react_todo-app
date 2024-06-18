@@ -131,7 +131,7 @@ export const useTodosMethods = (): TodoMethods => {
     getTodos().then(fetchedTodos => {
       dispatch({ type: ActionType.SetTodos, payload: fetchedTodos });
     });
-  }, [dispatch]);
+  }, []);
 
   return {
     setTodosLocal,
@@ -146,8 +146,9 @@ export const useTodosMethods = (): TodoMethods => {
 export const GlobalStateProvider: React.FC<Props> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  // Store todos in local storage whenever they change
   useEffect(() => {
-    setTodosToLocalStorage(state.todos); // Save todos to local storage whenever state changes
+    setTodosToLocalStorage(state.todos);
   }, [state.todos]);
 
   return (
