@@ -17,8 +17,6 @@ A simple and efficient todo application to manage your tasks using local storage
 - **TypeScript**: Typed superset of JavaScript
 - **Bulma**: CSS framework based on Flexbox
 - **FontAwesome**: Icon library for scalable vector icons
-- **classnames**: Utility for conditionally joining classNames
-- **localStorage**: Web API for local storage
 
 ## Installation
 
