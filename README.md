@@ -53,7 +53,3 @@ A simple and efficient todo application to manage your tasks using local storage
 ## Contributing
 
 Feel free to submit issues or pull requests. Any contributions are welcome!
-
-## License
-
-This project is licensed under the MIT License.
