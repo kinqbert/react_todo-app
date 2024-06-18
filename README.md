@@ -2,6 +2,8 @@
 
 A simple and efficient todo application to manage your tasks using local storage.
 
+[DEMO LINK](https://kinqbert.github.io/react_todo-app/)
+
 ## Features
 
 - Add, delete, and modify tasks
