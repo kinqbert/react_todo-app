@@ -10,12 +10,8 @@ import { ErrorNotification } from './components/ErrorNotification';
 
 export const App: React.FC = () => {
   const { todos } = useCurrentState();
-  const {
-    addTodoLocal,
-    setTodosLocal,
-    modifyTodoLocal,
-    setTimeoutErrorMessage,
-  } = useTodosMethods();
+  const { addTodoLocal, modifyTodoLocal, setTimeoutErrorMessage } =
+    useTodosMethods();
 
   const [input, setInput] = useState('');
   const [tempTodo, setTempTodo] = useState<Todo | null>(null);
@@ -24,12 +20,6 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     inputRef.current?.focus();
-
-    // Load todos from local storage
-    const storedTodos = JSON.parse(
-      localStorage.getItem('react_todo-app_todos') || '[]',
-    );
-    setTodosLocal(storedTodos);
   }, []);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {

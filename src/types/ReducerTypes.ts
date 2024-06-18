@@ -17,8 +17,6 @@ export interface State {
   errorMessage: string;
 }
 
-/* eslint-disable @typescript-eslint/indent */
-// had to disable linter here, because linter is conflicting with prettier on lines 28-30
 export type Action =
   | { type: ActionType.SetTodos; payload: Todo[] }
   | { type: ActionType.SetFilterField; payload: FilterField }

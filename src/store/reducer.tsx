@@ -5,7 +5,7 @@ import { FilterField } from '../types/FilterField';
 import { State, Action, ActionType } from '../types/ReducerTypes';
 import { Todo } from '../types/Todo';
 import { TodoMethods } from '../types/TodoMethods';
-import { getTodos, setTodosToLocalStorage } from '../api/todos';
+import { getTodos, setTodosToLocalStorage } from '../localStorage/todos';
 
 interface Props {
   children: React.ReactNode;
@@ -127,12 +127,6 @@ export const useTodosMethods = (): TodoMethods => {
     }, delay);
   };
 
-  useEffect(() => {
-    getTodos().then(fetchedTodos => {
-      dispatch({ type: ActionType.SetTodos, payload: fetchedTodos });
-    });
-  }, []);
-
   return {
     setTodosLocal,
     addTodoLocal,
@@ -145,6 +139,14 @@ export const useTodosMethods = (): TodoMethods => {
 
 export const GlobalStateProvider: React.FC<Props> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  // Load todos from local storage on mount
+  useEffect(() => {
+    const storedTodos = getTodos();
+    if (storedTodos.length) {
+      dispatch({ type: ActionType.SetTodos, payload: storedTodos });
+    }
+  }, []);
 
   // Store todos in local storage whenever they change
   useEffect(() => {

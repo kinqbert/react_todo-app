@@ -2,9 +2,9 @@ import { Todo } from '../types/Todo';
 
 const LOCAL_STORAGE_KEY = 'react_todo-app_todos';
 
-export const getTodos = (): Promise<Todo[]> => {
+export const getTodos = (): Todo[] => {
   const todos = localStorage.getItem(LOCAL_STORAGE_KEY);
-  return Promise.resolve(todos ? JSON.parse(todos) : []);
+  return todos ? JSON.parse(todos) : ([] as Todo[]);
 };
 
 export const setTodosToLocalStorage = (todos: Todo[]): void => {
