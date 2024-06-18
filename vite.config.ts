@@ -4,6 +4,6 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
-    base: mode === 'deploy' ? '/phone-catalog/' : '/',
+    base: mode === 'deploy' ? '/react_todo-app/' : '/',
   };
 });
